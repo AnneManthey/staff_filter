@@ -22,6 +22,37 @@
 
     <h2 style="color:red">Antworten:</h2>
 
-    <!-- Hier eure Antworten rendern -->
+    <ol>
+      <li><strong>Mitarbeiterliste:</strong></li>
+      <ul>
+        {% for employee in all_employees %}
+        <li>
+          {{employee.name}}: Abteilung: {{employee.demartment}} Gehalt: {{employee.salary}}€
+        </li>
+        {% endfor %}
+      </ul>
+      <li><strong>Mitarbeiter, die mehr als 3000€ im Monat verdienen:</strong></li>
+      <ul>
+        {% for employee in over_3000 %}
+        <li>
+          {{employee.name}}
+        </li>
+        {% endfor %}
+      </ul>
+      <li><strong>Anzahl Mitarbeiter, die 5000€ im Monat oder mehr verdienen:</strong></li>
+      <p>{{ count_5000 }}</p>
+      <li><strong>Durchschnittsgehalt im Sales-Team:</strong></li>
+      <p>{{ average_sales | floatformat:2 }}€</p>
+      <li><strong>Mitarbeiter, die vor dem 1. Januar 2022 eingestellt wurden und nicht im HR-Team sind:</strong></li>
+      <ul>
+        {% for employee in before_2022_not_hr %}
+        <li>
+          {{employee.name}}
+        </li>
+        {% endfor %}
+      </ul>
+    </ol>
+
+   
   </body>
 </html>
